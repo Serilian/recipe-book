@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {selector} from "rxjs/operator/publish";
 
 @Component({
@@ -8,5 +8,13 @@ import {selector} from "rxjs/operator/publish";
 })
 
 export class HeaderComponent {
+
+  @Output() featureSelected = new EventEmitter<string>();
+
+  onSelect(feature: string) {
+
+    this.featureSelected.emit(feature);
+
+  }
 
 }
