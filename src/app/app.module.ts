@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {DropdownDirective} from "./shared/dropdown.directive";
 import {RecipeService} from "./recipes/recipe.service";
+import {ShoppingListService} from "./shopping-list/shopping-list.service";
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {RecipeService} from "./recipes/recipe.service";
     FormsModule,
     HttpModule
   ],
-   bootstrap: [AppComponent]
+   bootstrap: [AppComponent],
+  providers: [ShoppingListService]
 })
 export class AppModule { }
