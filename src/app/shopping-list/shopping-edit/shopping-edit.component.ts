@@ -7,7 +7,7 @@ import {
   Output, OnDestroy
 } from '@angular/core';
 
-import { Ingredient } from '../../shared/ingredient.model';
+import {Ingredient} from '../../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list.service';
 import {NgForm} from '@angular/forms';
 import {Subscription} from 'rxjs/Subscription';
@@ -25,7 +25,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editedItem: Ingredient;
 
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(private slService: ShoppingListService) {
+  }
 
   ngOnInit() {
     this.subscription = this.slService.startedEditing.subscribe(
@@ -43,7 +44,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onAddItem(form: NgForm) {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
-    this.slService.addIngredient(newIngredient);
+    if (this.editMode) {
+      this.slService.updateIngredient(this.editemItemIndex, newIngredient);
+    } else {
+      this.slService.addIngredient(newIngredient);
+    }
+
   }
 
   ngOnDestroy(): void {
