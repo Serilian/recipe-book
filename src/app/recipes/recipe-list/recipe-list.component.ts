@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { Recipe } from '../recipe.model';
-import {RecipeService} from "../recipe.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {RecipeService} from '../recipe.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,6 +15,10 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipesService: RecipeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.recipesService.recipesChanged.subscribe(
+    (recipes: Recipe[]) => {
+      this.recipes = recipes;
+    });
     this.recipes = this.recipesService.getRecipes();
   }
 
