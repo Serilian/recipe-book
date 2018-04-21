@@ -21,6 +21,7 @@ import {HttpModule} from "@angular/http";
 import {DataStorageService} from "./shared/data-storage.service";
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import {AuthService} from "./auth/auth.service";
 
 
 @NgModule({
@@ -47,7 +48,12 @@ import { SigninComponent } from './auth/signin/signin.component';
     HttpModule
   ],
   bootstrap: [AppComponent],
-  providers: [ShoppingListService, RecipeService, DataStorageService]
+  providers: [
+    AuthService,
+    ShoppingListService,
+    RecipeService,
+    DataStorageService
+  ]
 })
 export class AppModule {
 }
