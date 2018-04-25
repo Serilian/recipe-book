@@ -23,29 +23,24 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from "./auth/auth.service";
 import {AuthGuardService} from "./auth/auth-guard.service";
+import {RecipesModule} from "./recipes/recipes.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
     SignupComponent,
     SigninComponent
   ],
   imports: [
+    RecipesModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpModule
   ],
   bootstrap: [AppComponent],
