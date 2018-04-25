@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {DataStorageService} from "../shared/data-storage.service";
 import {RecipeService} from "../recipes/recipe.service";
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,10 @@ import {RecipeService} from "../recipes/recipe.service";
 })
 export class HeaderComponent {
 
-  constructor(private rService: RecipeService, private dService: DataStorageService) {}
+  constructor(private rService: RecipeService,
+              private dService: DataStorageService,
+              private authService: AuthService
+              ) {}
 
   onSaveData() {
     this.dService.storeData().subscribe(
@@ -19,6 +23,11 @@ export class HeaderComponent {
 
   onFetchData() {
     this.dService.fetchData();
+  }
+
+  onLogout() {
+    this.authService.logout();
+    console.log('logout');
   }
 
 }
