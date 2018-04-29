@@ -30,13 +30,7 @@ import {CoreModule} from "./core/core.module";
     CoreModule
   ],
   bootstrap: [AppComponent],
-  providers: [
-    AuthService,
-    ShoppingListService,
-    RecipeService,
-    DataStorageService,
-    AuthGuardService
-  ]
+  providers: []
 })
 export class AppModule {
 }
