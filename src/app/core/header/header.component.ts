@@ -30,4 +30,8 @@ export class HeaderComponent {
     console.log('logout');
   }
 
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
 }
