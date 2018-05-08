@@ -7,11 +7,6 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadedFeature = 'recipe';
-
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
 
   ngOnInit(): void {
     firebase.initializeApp({
@@ -23,7 +18,6 @@ export class AppComponent implements OnInit {
       messagingSenderId: "389221242965"
     });
   }
-
 
 
 }
