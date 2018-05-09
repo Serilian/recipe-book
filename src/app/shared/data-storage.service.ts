@@ -22,8 +22,7 @@ export class DataStorageService {
     //   // params: new HttpParams().set('auth', token)
     // });
     const req = new HttpRequest('PUT', 'https://ng-recipe-book-9f137.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
-      reportProgress: true,
-      params: new HttpParams().set('auth', token)
+      reportProgress: true
     });
 
     return this.httpClient.request(req);
@@ -32,7 +31,7 @@ export class DataStorageService {
 
   fetchData() {
     const token = this.authService.getToken();
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-9f137.firebaseio.com/recipes.json?auth=' + token, {
+    this.httpClient.get<Recipe[]>('https://ng-recipe-book-9f137.firebaseio.com/recipes.json', {
       observe: "body",
       responseType: "json"
     })
